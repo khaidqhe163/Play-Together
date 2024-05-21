@@ -1,5 +1,6 @@
 import Home from "../components/Home"
 import Login from "../components/Login"
+import Register from "../components/Register"
 const routes = [
     {
         path: '/',
@@ -8,6 +9,10 @@ const routes = [
     {
         path: '/login',
         element: Login
+    },
+    {
+        path: '/register',
+        element: Register
     }
 ]
 

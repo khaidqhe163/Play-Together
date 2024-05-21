@@ -1,12 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Login from './components/Login';
-import Register from './components/Register';
-import Home from './components/Home';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserInformation, userInfor } from './features/userSlice'
-import ResetPassword from './components/ResetPassword';
+import route from './routes/Routes'
 function App() {
   const dispatch = useDispatch();
   const userInfo = useSelector(userInfor);
@@ -33,10 +30,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element=<Home />></Route>
-          <Route path='/login' element=<Login />></Route>
-          <Route path='/register' element=<Register />></Route>
-          <Route path='/resetpassword' element=<ResetPassword />></Route>
+          {
+            route.routes.map((route) => (
+              <Route key={route.path}
+                path={route.path}
+                element={
+                  <route.element />
+                }
+              />
+            ))
+          }
         </Routes>
       </BrowserRouter>
     </div>
