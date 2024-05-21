@@ -1,4 +1,4 @@
-import HomeController from './HomeController.js'
+import UserController from "./UserController.js"
 export {
-    HomeController
+    UserController
 }
