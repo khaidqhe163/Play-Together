@@ -52,7 +52,9 @@ const UserSchema = new Schema({
         type: Number,
         default: 0
     },
-    player: PlayerSchema
+    player: {
+        type: PlayerSchema
+    }
 })
 
 const User = mongoose.model("user", UserSchema);

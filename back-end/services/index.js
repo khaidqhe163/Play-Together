@@ -1,4 +1,4 @@
-import ProductService from './ProductService.js'
+import UserService from './UserService.js'
 export {
-    ProductService
+    UserService
 }

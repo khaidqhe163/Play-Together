@@ -46,8 +46,7 @@
 
 #login-header button{
     border: none;
-    height: 30px;
-    width: 90px;
+    padding: 5px 10px;
     border-radius: 15px;
     background-color: #6b47ff;
     color: white;
