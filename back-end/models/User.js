@@ -33,8 +33,7 @@ const UserSchema = new Schema({
         required: true
     },
     password: {
-        type: String,
-        required: true
+        type: String
     },
     gender: {
         type: String
@@ -52,7 +51,9 @@ const UserSchema = new Schema({
         type: Number,
         default: 0
     },
-    player: PlayerSchema
+    player: {
+        type: PlayerSchema
+    }
 })
 
 const User = mongoose.model("user", UserSchema);

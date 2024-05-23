@@ -35,6 +35,7 @@ export default function NavBar() {
                     </div>
                 </Link>
                 <Link to={'/home'} className="btn mx-3 rounded-circle navb" style={activeButton === 'videocam' ? bgButtonActive : bgButton} onClick={() => handleButtonClick('videocam')}>
+                <Link to={'/stories'} className="btn mx-3 rounded-circle navb" style={activeButton === 'videocam' ? bgButtonActive : bgButton} onClick={() => handleButtonClick('videocam')}>
                     <div className="d-flex justify-content-center align-items-center">
                         <IoVideocamOutline color="white" size={35} />
                     </div>
