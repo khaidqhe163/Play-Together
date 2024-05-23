@@ -18,7 +18,7 @@ function ResetPassword() {
     // }, [])
     return (
         <Container fluid>
-            <Row sx={{ backgroundColor: 'red'}}>
+            <Row>
                 <LoginLeft />
                 <Col md={6} id='rp-right'>
                     <h1>Reset Password</h1>
