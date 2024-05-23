@@ -19,24 +19,33 @@ function Login() {
     const handleShow = () => setShowResetPassword(true);
     const handleLogin = async (e) => {
         e.preventDefault();
-        const userInfo = await axios.post(`http://localhost:3008/account/login`, {
-            email: email.current.value,
-            password: password.current.value
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            withCredentials: true
+        try {
+            const userInfo = await axios.post(`http://localhost:3008/api/user/login`, {
+                email: email.current.value,
+                password: password.current.value
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            }
+            )
+            console.log(userInfo);
+            dispatch(setUserInformation(userInfo.data));
+            nav('/')
+        } catch (error) {
+            console.log(error);
+            if (error.response && error.response.status === 401) {
+                alert(error.response.data.message)
+            } else {
+                alert('Xin lỗi: Đang có một vấn đề gì đó xảy ra');
+            }
         }
-        )
-
-        dispatch(setUserInformation(userInfo.data));
-        nav('/')
     }
 
     const loginGG = (e, type) => {
         let url;
-        type === 1 ? url = 'http://localhost:3008/account/auth/google' : url = "http://localhost:3008/account/auth/facebook";
+        type === 1 ? url = 'http://localhost:3008/api/user/auth/google' : url = "http://localhost:3008/api/user/auth/facebook";
         window.open(url, '_self')
     }
     return (

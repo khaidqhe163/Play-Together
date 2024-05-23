@@ -2,7 +2,7 @@ import Home from "../components/Home"
 import Login from "../components/Login"
 import Register from "../components/Register"
 import StoryPage from "../pages/StoryPage"
-
+import SocialMediaLogin from "../components/SocialMediaLogin"
 const routes = [
     {
         path: '/',
@@ -19,6 +19,10 @@ const routes = [
     {
         path: '/stories',
         element: StoryPage
+    },
+  {
+        path: '/login-success/:token',
+        element: SocialMediaLogin
     }
 ]
 
