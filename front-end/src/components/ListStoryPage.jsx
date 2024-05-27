@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import storyImage1 from '../assets/imagevideo2.jpg';
 import storyImage3 from '../assets/imagevideo3.jpg';
 import avatar1 from '../assets/avatar1.jpg';
 import avatar2 from '../assets/avatar2.jpg';
 import avatar3 from '../assets/avatar3.jpg';
+import StoryModal from './Modal/StoryModal';
 
 export default function ListStoryPage() {
     const stories = [
@@ -19,11 +20,15 @@ export default function ListStoryPage() {
         { id: 10, img: storyImage3, avatar: avatar3, name: 'Hương Thảo' },
     ];
 
+    const [openModalStory, setOpenModalStory] = useState()
+
     return (
         <>
-            <div className="row">
+            <div className="row" style={{cursor: "pointer"}}>
                 {stories.map(story => (
-                    <div className="col-6 col-md-4 col-lg-2 mb-4" key={story.id}>
+                    <div className="col-6 col-md-4 col-lg-2 mb-4" key={story.id}
+                        onClick={() => setOpenModalStory(story)}
+                    >
                         <div className="card rounded-4 text-white hover-card" style={styles.card}>
                             <img src={story.img} className="card-img-top rounded-top-4" style={styles.cardImage} alt="story" />
                             <div className="overlay-info" style={styles.overlayInfo}>
@@ -33,7 +38,16 @@ export default function ListStoryPage() {
                         </div>
                     </div>
                 ))}
+
             </div>
+
+            {!!openModalStory && (
+                <StoryModal
+                    open={openModalStory}
+                    onCancel={() => setOpenModalStory(undefined)}
+                    // onOk={getList}
+                />
+            )}
         </>
     );
 }
